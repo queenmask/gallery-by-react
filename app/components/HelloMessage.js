@@ -45,6 +45,25 @@ class PropTypeDemo extends React.Component{
     }
 }
 
-//demo7----------------
+//demo7----------------get the real DOM,by using "this.refs.refName"
+/**
+ * !!!!!!!!!attention here: when you use this.handleClick,you need to bind(this)
+ */
+class RefsDemo extends React.Component{
 
-export  {HelloMessage,NotesList, PropTypeDemo}
+    handleClick(){
+        this.refs.firstInput.focus();
+    };
+
+    render(){
+        return (
+        <div>
+            <input type="text" ref="firstInput" ></input>
+            <input type="button" value="test for ref" onClick={this.handleClick.bind(this)}></input>
+        </div>
+
+        )
+    }
+}
+
+export  {HelloMessage, NotesList, PropTypeDemo, RefsDemo}

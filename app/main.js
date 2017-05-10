@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import Demo from './components/Demo.js';
-import {HelloMessage, NotesList, PropTypeDemo} from './components/HelloMessage.js';
+import {HelloMessage, NotesList, PropTypeDemo, RefsDemo} from './components/HelloMessage.js';
 
 //demo6
 //var test = 123;
@@ -11,8 +11,8 @@ import {HelloMessage, NotesList, PropTypeDemo} from './components/HelloMessage.j
 
 ReactDom.render(
     //demo1-3
-    <Demo/>,
-    document.getElementById('demo'),
+    //<Demo/>,
+    //document.getElementById('demo'),
 
     //demo4----------this.props.name
     //<HelloMessage name = "pan"/>,
@@ -31,5 +31,8 @@ ReactDom.render(
     //<PropTypeDemo title={test}/>,
     //document.getElementById('demo'),
 
+    //demo7-------------------get the real DOM,by using "this.refs.refName"
+    <RefsDemo/>,
+    document.getElementById('demo'),
 
 );
