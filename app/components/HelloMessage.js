@@ -8,7 +8,7 @@ import React from 'react';
  * 1.组件名称必须大写
  * 2.组件类只能包含一个定级标签，否则会报错
  */
-class HelloMessage extends React.Component{
+export class HelloMessage extends React.Component{
     render(){
         return (
             <h1>Hello,{this.props.name}</h1>
@@ -22,7 +22,7 @@ class HelloMessage extends React.Component{
 * 2.如果有一个子节点，数据类型是 object ；
 * 3.如果有多个子节点，数据类型就是 array
  */
-class NotesList  extends React.Component{
+export class NotesList  extends React.Component{
     render(){
         return(
             <ul>
@@ -37,7 +37,7 @@ class NotesList  extends React.Component{
 }
 
 //demo6------------propTypes:React.PropTypes.string.isRequired
-class PropTypeDemo extends React.Component{
+export class PropTypeDemo extends React.Component{
     render(){
         return (
             <div>{this.props.title}</div>
@@ -49,7 +49,7 @@ class PropTypeDemo extends React.Component{
 /**
  * !!!!!!!!!attention here: when you use this.handleClick,you need to bind(this)
  */
-class RefsDemo extends React.Component{
+export class RefsDemo extends React.Component{
 
     handleClick(){
         this.refs.firstInput.focus();
@@ -66,4 +66,43 @@ class RefsDemo extends React.Component{
     }
 }
 
-export  {HelloMessage, NotesList, PropTypeDemo, RefsDemo}
+//demo8-------------------state
+
+export class StateDemo extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            liked: false
+        }
+    }
+
+
+    handleClick(){
+        this.setState({liked:!this.state.liked})
+    }
+
+    render(){
+        var text = this.state.liked?"like":"dislike";
+        return(
+            <p onClick={this.handleClick.bind(this)}>
+                You {text} here!
+            </p>
+        )
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
