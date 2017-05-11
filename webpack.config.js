@@ -1,32 +1,32 @@
 var webpack = require('webpack');
-//__dirnameÊÇnode.jsÖĞµÄÒ»¸öÈ«¾Ö±äÁ¿£¬ËüÖ¸Ïòµ±Ç°Ö´ĞĞ½Å±¾ËùÔÚµÄÄ¿Â¼
-module.exports = {//×¢ÒâÕâÀïÊÇexports²»ÊÇexport
-	devtool: 'eval-source-map',//Éú³ÉSource Maps,ÕâÀïÑ¡Ôñeval-source-map
-    entry: ['webpack/hot/dev-server', __dirname + '/app/main.js'],//Î¨Ò»Èë¿ÚÎÄ¼ş£¬¾ÍÏñJavaÖĞµÄmain·½·¨
-    output: {//Êä³öÄ¿Â¼
-        path: __dirname + "/build",//´ò°üºóµÄjsÎÄ¼ş´æ·ÅµÄµØ·½
-        filename: "bundle.js"//´ò°üºóµÄjsÎÄ¼şÃû
+//__dirnameæ˜¯node.jsä¸­çš„ä¸€ä¸ªå…¨å±€å˜é‡ï¼Œå®ƒæŒ‡å‘å½“å‰æ‰§è¡Œè„šæœ¬æ‰€åœ¨çš„ç›®å½•
+module.exports = {//æ³¨æ„è¿™é‡Œæ˜¯exportsä¸æ˜¯export
+    devtool: 'eval-source-map',//ç”ŸæˆSource Maps,è¿™é‡Œé€‰æ‹©eval-source-map
+    entry: ['webpack/hot/dev-server', __dirname + '/app/main.js'],//å”¯ä¸€å…¥å£æ–‡ä»¶ï¼Œå°±åƒJavaä¸­çš„mainæ–¹æ³•
+    output: {//è¾“å‡ºç›®å½•
+        path: __dirname + "/build",//æ‰“åŒ…åçš„jsæ–‡ä»¶å­˜æ”¾çš„åœ°æ–¹
+        filename: "bundle.js"//æ‰“åŒ…åçš„jsæ–‡ä»¶å
     },
-   module: {
-        //loaders¼ÓÔØÆ÷
+    module: {
+        //loadersåŠ è½½å™¨
         loaders: [
             {
-                test: /\.(js|jsx)$/,//Ò»¸öÆ¥ÅäloadersËù´¦ÀíµÄÎÄ¼şµÄÍØÕ¹ÃûµÄÕıÔò±í´ïÊ½£¬ÕâÀïÓÃÀ´Æ¥ÅäjsºÍjsxÎÄ¼ş£¨±ØĞë£©
-                exclude: /node_modules/,//ÆÁ±Î²»ĞèÒª´¦ÀíµÄÎÄ¼ş£¨ÎÄ¼ş¼Ğ£©£¨¿ÉÑ¡£©
-                loader: 'babel-loader'//loaderµÄÃû³Æ£¨±ØĞë£©
+                test: /\.(js|jsx)$/,//ä¸€ä¸ªåŒ¹é…loadersæ‰€å¤„ç†çš„æ–‡ä»¶çš„æ‹“å±•åçš„æ­£åˆ™è¡¨è¾¾å¼ï¼Œè¿™é‡Œç”¨æ¥åŒ¹é…jså’Œjsxæ–‡ä»¶ï¼ˆå¿…é¡»ï¼‰
+                exclude: /node_modules/,//å±è”½ä¸éœ€è¦å¤„ç†çš„æ–‡ä»¶ï¼ˆæ–‡ä»¶å¤¹ï¼‰ï¼ˆå¯é€‰ï¼‰
+                loader: 'babel-loader'//loaderçš„åç§°ï¼ˆå¿…é¡»ï¼‰
             }
         ]
     },
-	 plugins: [
-        new webpack.HotModuleReplacementPlugin()//ÈÈÄ£¿éÌæ»»²å¼ş
+    plugins: [
+        new webpack.HotModuleReplacementPlugin()//çƒ­æ¨¡å—æ›¿æ¢æ’ä»¶
     ],
-    //webpack-dev-serverÅäÖÃ
+    //webpack-dev-serveré…ç½®
     devServer: {
-        contentBase: './build',//Ä¬ÈÏwebpack-dev-server»áÎª¸ùÎÄ¼ş¼ĞÌá¹©±¾µØ·şÎñÆ÷£¬Èç¹ûÏëÎªÁíÍâÒ»¸öÄ¿Â¼ÏÂµÄÎÄ¼şÌá¹©±¾µØ·şÎñÆ÷£¬Ó¦¸ÃÔÚÕâÀïÉèÖÃÆäËùÔÚÄ¿Â¼£¨±¾ÀıÉèÖÃµ½"build"Ä¿Â¼£©
-        //colors: true,//ÔÚcmdÖÕ¶ËÖĞÊä³ö²ÊÉ«ÈÕÖ¾
-        historyApiFallback: true,//ÔÚ¿ª·¢µ¥Ò³Ó¦ÓÃÊ±·Ç³£ÓĞÓÃ£¬ËüÒÀÀµÓÚHTML5 history API£¬Èç¹ûÉèÖÃÎªtrue£¬ËùÓĞµÄÌø×ª½«Ö¸Ïòindex.html
-        //inline: true,//ÉèÖÃÎªtrue£¬µ±Ô´ÎÄ¼ş¸Ä±äÊ±»á×Ô¶¯Ë¢ĞÂÒ³Ãæ
-        port: 8888,//ÉèÖÃÄ¬ÈÏ¼àÌı¶Ë¿Ú£¬Èç¹ûÊ¡ÂÔ£¬Ä¬ÈÏÎª"8080"
-       // process: true,//ÏÔÊ¾ºÏ²¢´úÂë½ø¶È
+        contentBase: './build',//é»˜è®¤webpack-dev-serverä¼šä¸ºæ ¹æ–‡ä»¶å¤¹æä¾›æœ¬åœ°æœåŠ¡å™¨ï¼Œå¦‚æœæƒ³ä¸ºå¦å¤–ä¸€ä¸ªç›®å½•ä¸‹çš„æ–‡ä»¶æä¾›æœ¬åœ°æœåŠ¡å™¨ï¼Œåº”è¯¥åœ¨è¿™é‡Œè®¾ç½®å…¶æ‰€åœ¨ç›®å½•ï¼ˆæœ¬ä¾‹è®¾ç½®åˆ°"build"ç›®å½•ï¼‰
+        //colors: true,//åœ¨cmdç»ˆç«¯ä¸­è¾“å‡ºå½©è‰²æ—¥å¿—
+        historyApiFallback: true,//åœ¨å¼€å‘å•é¡µåº”ç”¨æ—¶éå¸¸æœ‰ç”¨ï¼Œå®ƒä¾èµ–äºHTML5 history APIï¼Œå¦‚æœè®¾ç½®ä¸ºtrueï¼Œæ‰€æœ‰çš„è·³è½¬å°†æŒ‡å‘index.html
+        //inline: true,//è®¾ç½®ä¸ºtrueï¼Œå½“æºæ–‡ä»¶æ”¹å˜æ—¶ä¼šè‡ªåŠ¨åˆ·æ–°é¡µé¢
+        port: 8888,//è®¾ç½®é»˜è®¤ç›‘å¬ç«¯å£ï¼Œå¦‚æœçœç•¥ï¼Œé»˜è®¤ä¸º"8080"
+        // process: true,//æ˜¾ç¤ºåˆå¹¶ä»£ç è¿›åº¦
     }
 }
