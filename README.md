@@ -1,2 +1,2 @@
-# React-webpack
-some React Demos
+# gallery - by -react
+here is a demo of gallery by useing react
